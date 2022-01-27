@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package nu.te4.generic;
 
 /**
@@ -24,11 +19,21 @@ public class LinkedList{
         getTail().next = new Node(value);
     }
     
-    public int removetail(){
-        //hitta näst sista med en dowhile lik den i getTail()?
+    public void removeTail(){
+        Node current = head;
+        Node previous = head;
+        while(current.next != null){
+            previous = current;    
+            current = current.next;     
+        }
+        previous.next = null;
     }
     
     public void print(){
-        
+        Node current = head;
+        while(current.next != null){
+            System.out.println(current.value);
+            current = current.next;
+        }
     }
 }
