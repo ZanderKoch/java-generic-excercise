@@ -4,7 +4,7 @@ package nu.te4.generic;
  *
  * @author Zander Koch
  */
-public class LinkedList{
+public class LinkedList<T>{
     Node head;
 
     public LinkedList(){
@@ -19,7 +19,7 @@ public class LinkedList{
         return current;
     }
     
-    public void addToTail(int value){
+    public void addToTail(T value){
         if(head == null){
             head = new Node(value);
         }
@@ -30,6 +30,9 @@ public class LinkedList{
     }
     
     public void removeTail(){
+        if(head.next == null){
+            head = null;
+        }
         Node current = head;
         Node previous = head;
         while(current.next != null){
@@ -39,11 +42,20 @@ public class LinkedList{
         previous.next = null;
     }
     
+    public void addToHead(T value){
+        if(head == null){
+            head = new Node(value);
+        }
+        else{
+            head = new Node(head, value);
+        }
+    }
+    
     public void print(){
         String result= "";
         Node current = head;
         while(current != null){
-            result += Integer.toString(current.value) + ", ";
+            result += current.value.toString() + ", ";
             current = current.next;
         }
         System.out.println(result);

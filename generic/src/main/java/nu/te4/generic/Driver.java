@@ -10,7 +10,7 @@ public class Driver{
     public static void main(String[] args){
         LinkedList list = new LinkedList();
         
-        System.out.println("enter a list of numbers separated by spaces to "
+        System.out.println("enter a list of anything separated by spaces to "
                 + "create a linkedlist and start the rest of the program");
         
         Scanner scanner = new Scanner(System.in);
@@ -24,13 +24,13 @@ public class Driver{
 
         boolean done = false;
         while(!done){
-            System.out.println("\ravailable commands:"
+            System.out.println("available commands:"
                 + "tail+ <value> | tail- | quit");
             
             String[] command = scanner.nextLine().split(" ");
             switch(command[0]){
                 case("tail+"):
-                    list.addToTail(Integer.parseInt(command[1]));
+                    list.addToTail(command[1]);
                     list.print();
                     break;
                     

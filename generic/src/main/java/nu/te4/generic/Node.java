@@ -4,15 +4,15 @@ package nu.te4.generic;
  *
  * @author Zander Koch
  */
-public class Node{
+public class Node<T>{
     Node next;
-    int value;
+    T value;
 
-    public Node(int value){
+    public Node(T value){
         this.value = value;
     }
 
-    public Node(Node next, int value){
+    public Node(Node next, T value){
         this.next = next;
         this.value = value;
     }
