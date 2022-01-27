@@ -6,6 +6,10 @@ package nu.te4.generic;
  */
 public class LinkedList{
     Node head;
+
+    public LinkedList(){
+    }
+    
     
     public Node getTail(){
         Node current = head;
@@ -16,7 +20,13 @@ public class LinkedList{
     }
     
     public void addToTail(int value){
-        getTail().next = new Node(value);
+        if(head == null){
+            head = new Node(value);
+        }
+        else{
+          getTail().next = new Node(value);  
+        }
+        
     }
     
     public void removeTail(){
@@ -30,10 +40,12 @@ public class LinkedList{
     }
     
     public void print(){
+        String result= "";
         Node current = head;
-        while(current.next != null){
-            System.out.println(current.value);
+        while(current != null){
+            result += Integer.toString(current.value) + ", ";
             current = current.next;
         }
+        System.out.println(result);
     }
 }
